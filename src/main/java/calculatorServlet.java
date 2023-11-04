@@ -5,8 +5,12 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +39,7 @@ public class calculatorServlet extends HttpServlet {
             if (op.equals("+")) {
                 result = numVal1 + numVal2;
             } else if (op.equals("-")) {
-                result = numVal1 + numVal2;
+                result = numVal1 - numVal2;
             } else if (op.equals("*")) {
                 result = numVal1 * numVal2;
             } else if (op.equals("/")) {
@@ -48,9 +52,37 @@ public class calculatorServlet extends HttpServlet {
             throw e;
         }
         
+        Cookie cookie = new Cookie("history" + System.currentTimeMillis(), String.valueOf(result));
+        cookie.setMaxAge(-1);
+        
+        response.addCookie(cookie);
+        
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            int historyCtr = 0;
+            for (Cookie c : cookies) {
+                if (c.getName().startsWith("history")) {
+                    historyCtr++;
+                }
+            }
+
+            if (historyCtr > 5) {
+                for (Cookie c : cookies) {
+                    if (c.getName().startsWith("history")) {
+                        c.setMaxAge(0); // Delete older history cookies
+                        response.addCookie(c);
+                        historyCtr--;
+                        if (historyCtr <= 5) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         request.setAttribute("result", result);
         request.getRequestDispatcher("/calculator.jsp").forward(request, response);
-           
+
     }
 
 

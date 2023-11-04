@@ -27,18 +27,23 @@
             
             History : <select name="history" >
                 <option selected="selected" disabled="true"> History </option>
-                <% 
-                    Cookie cookies[] = request.getCookies(); 
+                <%
+                    Cookie cookies[] = request.getCookies();
                     int j = 0;
-                    for(int i = 0; i < cookies.length; i++){  
-                        if(cookies[i].getName().equals("history" + j)) {
+                    for (int i = 0; i < cookies.length; i++) {
+                        if (cookies[i].getName().startsWith("history")) {
                 %>
-                <option value=<%= cookies[i].getValue() %>> <%= cookies[i].getValue()%></option>
-                <%          j++;
+                <option value="<%= cookies[i].getValue()%>"><%= cookies[i].getValue()%></option>
+                <%
+                            j++;
+                            if (j >= 5) {
+                                break; // Display only the latest 5 history entries
+                            }
                         }
                     }
                 %>
             </select>
+
             <br>
 
         </form>
