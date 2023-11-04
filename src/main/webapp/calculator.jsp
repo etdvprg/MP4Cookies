@@ -9,13 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src = "/MP4Cookies/js/script.js"></script>
         <title>Calculator</title>
     </head>
     <body>
         <h1>The Mighty Paraphernalia of Saint Liborius</h1>
         <form action="/MP4Cookies/calculatorServlet" method="POST">
-        Num1: <input type="text" name="Val1" /><br>
-        Num2: <input type="text" name="Val2" /><br>
+            Num1: <input type="text" name="Val1" /><select name="history" class="history-dropdown">
+                <option selected="selected" disabled="true">History</option>
+            </select>
+            <br>
+               
+            Num2: <input type="text" name="Val2" /> <select name="history" class="history-dropdown">
+                <option selected="selected" disabled="true">History</option>
+            </select>
+            <br>
+
         Operation: 
         <input type="radio" name="operation" value="+" />ADD
         <input type="radio" name="operation" value="-" />SUB
@@ -23,28 +32,7 @@
         <input type="radio" name="operation" value="/" />DIV
         <br>
         <input type="submit" value="Calculate">
-        <br>
-            
-            History : <select name="history" >
-                <option selected="selected" disabled="true"> History </option>
-                <%
-                    Cookie cookies[] = request.getCookies();
-                    int j = 0;
-                    for (int i = 0; i < cookies.length; i++) {
-                        if (cookies[i].getName().startsWith("history")) {
-                %>
-                <option value="<%= cookies[i].getValue()%>"><%= cookies[i].getValue()%></option>
-                <%
-                            j++;
-                            if (j >= 5) {
-                                break; // Display only the latest 5 history entries
-                            }
-                        }
-                    }
-                %>
-            </select>
 
-            <br>
 
         </form>
         

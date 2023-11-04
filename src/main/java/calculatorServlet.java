@@ -59,23 +59,16 @@ public class calculatorServlet extends HttpServlet {
         
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
+            int maxCookiesToShow = 5;
             int historyCtr = 0;
+
             for (Cookie c : cookies) {
                 if (c.getName().startsWith("history")) {
-                    historyCtr++;
-                }
-            }
-
-            if (historyCtr > 5) {
-                for (Cookie c : cookies) {
-                    if (c.getName().startsWith("history")) {
-                        c.setMaxAge(0); // Delete older history cookies
+                    if (historyCtr > maxCookiesToShow) {
+                        c.setMaxAge(0);
                         response.addCookie(c);
-                        historyCtr--;
-                        if (historyCtr <= 5) {
-                            break;
-                        }
                     }
+                    historyCtr++;
                 }
             }
         }
