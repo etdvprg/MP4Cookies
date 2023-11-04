@@ -21,7 +21,9 @@
         <input type="radio" name="operation" value="-" />SUB
         <input type="radio" name="operation" value="*" />MUL
         <input type="radio" name="operation" value="/" />DIV
+        <br>
         <input type="submit" value="Calculate">
+        <br>
             
             History : <select name="history" >
                 <option selected="selected" disabled="true"> History </option>
@@ -42,9 +44,9 @@
         </form>
         
         <%
-            Object rizalt = request.getParameter("result");
+            Object rizalt = request.getAttribute("result");
             if (rizalt != null) {
-                out.println(rizalt.toString());
+                out.println("Result: " + rizalt.toString());
             }
         %>
             

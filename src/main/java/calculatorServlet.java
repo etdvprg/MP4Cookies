@@ -49,11 +49,8 @@ public class calculatorServlet extends HttpServlet {
         }
         
         request.setAttribute("result", result);
-        request.getRequestDispatcher("/Calculator.jsp").forward(request, response);
-        
-        
-  
-        
+        request.getRequestDispatcher("/calculator.jsp").forward(request, response);
+           
     }
 
 
