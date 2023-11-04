@@ -10,9 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src = "/MP4Cookies/js/script.js"></script>
+        <link rel="stylesheet" href= "/MP4Cookies/css/calculator.css" />
         <title>Calculator</title>
     </head>
     <body>
+        <div class='wrapper'>
+         <div class='col-1'>
         <h1>The Mighty Paraphernalia of Saint Liborius</h1>
         <form action="/MP4Cookies/calculatorServlet" method="POST">
             Num1: <input type="text" name="Val1" /><select name="history" class="history-dropdown">
@@ -42,7 +45,13 @@
                 out.println("Result: " + rizalt.toString());
             }
         %>
+            </div>
+            
+            <div class = 'col-2'>
+                
+            </div>
             
             
+        </div>
     </body>
 </html>
