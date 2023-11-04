@@ -13,14 +13,15 @@
     </head>
     <body>
         <h1>The Mighty Paraphernalia of Saint Liborius</h1>
-        <form action="" method="POST">
-            Num1: <input type="string" name="Val1" /><br>
-            Num2: <input type="string" name="Val2" /><br>
-            Op: <input type="radio" name="addVal" value="+" />ADD
-            <input type="radio" name="subVal" value="-" />SUB
-            <input type="radio" name="mulVal" value="*" />MUL
-            <input type="radio" name="divVal" value="/" />DIV
-            <input type="submit">
+        <form action="/MP4Cookies/calculatorServlet" method="POST">
+        Num1: <input type="text" name="Val1" /><br>
+        Num2: <input type="text" name="Val2" /><br>
+        Operation: 
+        <input type="radio" name="operation" value="+" />ADD
+        <input type="radio" name="operation" value="-" />SUB
+        <input type="radio" name="operation" value="*" />MUL
+        <input type="radio" name="operation" value="/" />DIV
+        <input type="submit" value="Calculate">
             
             History : <select name="history" >
                 <option selected="selected" disabled="true"> History </option>
@@ -45,7 +46,7 @@
             if (rizalt != null) {
                 out.println(rizalt.toString());
             }
-            %>
+        %>
             
             
     </body>

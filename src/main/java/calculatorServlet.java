@@ -43,10 +43,16 @@ public class calculatorServlet extends HttpServlet {
             }
             
         } catch (ArithmeticException e) {
-            
+            throw e;
         } catch (NullPointerException e) { 
-            
+            throw e;
         }
+        
+        request.setAttribute("result", result);
+        request.getRequestDispatcher("/Calculator.jsp").forward(request, response);
+        
+        
+  
         
     }
 
