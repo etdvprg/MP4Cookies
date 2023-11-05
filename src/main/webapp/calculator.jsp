@@ -43,10 +43,16 @@
                 </div>
                 
             <input type="submit" value="Calculate">
+            
+            <br>
 <%
                 Object rizalt = request.getAttribute("result");
+                Object valA = request.getAttribute("numVal1");
+                Object valB = request.getAttribute("numVal2");
+                Object ope = request.getAttribute("ope");
+                
                 if (rizalt != null) {
-                    out.println("Result: " + rizalt.toString());
+                    out.println("Result: " +  " " +  valA.toString() + " " + ope.toString() + " " + valB.toString() + " = " + rizalt.toString());
                 }
             %>
 

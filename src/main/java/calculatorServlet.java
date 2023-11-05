@@ -32,9 +32,10 @@ public class calculatorServlet extends HttpServlet {
         
         double result = 0.0;
         
+        double numVal1 = Double.parseDouble(val1);
+        double numVal2 = Double.parseDouble (val2);
+        
         try {
-            double numVal1 = Double.parseDouble(val1);
-            double numVal2 = Double.parseDouble (val2);
             
             if (op.equals("+")) {
                 result = numVal1 + numVal2;
@@ -75,8 +76,13 @@ public class calculatorServlet extends HttpServlet {
                 }
             }
         }
-
+        
+        
+        request.setAttribute("numVal1", numVal1);
+        request.setAttribute("numVal2", numVal2);
+        request.setAttribute("ope", op);
         request.setAttribute("result", result);
+        
         request.getRequestDispatcher("/calculator.jsp").forward(request, response);
 
     }
