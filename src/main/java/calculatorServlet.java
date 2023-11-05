@@ -6,6 +6,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.lang.ArithmeticException;
 import java.util.Comparator;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -29,14 +30,20 @@ public class calculatorServlet extends HttpServlet {
         String val1 = request.getParameter("Val1");
         String val2 = request.getParameter("Val2");
         String op = request.getParameter("operation");
-        
+
         double result = 0.0;
-        
-        double numVal1 = Double.parseDouble(val1);
-        double numVal2 = Double.parseDouble (val2);
-        
+
+        double numVal1;
+        double numVal2;
+
         try {
-            
+            numVal1 = Double.parseDouble(val1);
+            numVal2 = Double.parseDouble(val2);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException();
+        }
+
+        try {
             if (op.equals("+")) {
                 result = numVal1 + numVal2;
             } else if (op.equals("-")) {
@@ -44,14 +51,18 @@ public class calculatorServlet extends HttpServlet {
             } else if (op.equals("*")) {
                 result = numVal1 * numVal2;
             } else if (op.equals("/")) {
-                result = numVal1 / numVal2;
+                if (numVal2 == 0.0 || (numVal1 == 0.0 && numVal2 == 0.0)){
+                    throw new ArithmeticException();
+                } else {
+                    result = numVal1 / numVal2;
+                }
             }
-            
         } catch (ArithmeticException e) {
-            throw e;
-        } catch (NullPointerException e) { 
-            throw e;
+            throw new ArithmeticException();
+        } catch (NullPointerException e) {
+            throw new NullPointerException();
         }
+
         Cookie[] cookies = request.getCookies();
         List<Cookie> historyCookies = new ArrayList<>();
         
