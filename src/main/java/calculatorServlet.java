@@ -4,10 +4,8 @@
  */
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.DecimalFormat; 
 import java.util.ArrayList;
-import java.lang.ArithmeticException;
-import java.util.Comparator;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -62,12 +60,17 @@ public class calculatorServlet extends HttpServlet {
         } catch (NullPointerException e) {
             throw new NullPointerException();
         }
+        
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        String eResult = decimalFormat.format(result);
+
+
 
         Cookie[] cookies = request.getCookies();
         List<Cookie> historyCookies = new ArrayList<>();
         
         String cookieName = "history" + System.currentTimeMillis();
-        String cookieValue = String.valueOf(result);
+        String cookieValue = eResult;
 
         Cookie newCookie = new Cookie(cookieName, cookieValue);
         response.addCookie(newCookie);
@@ -92,7 +95,7 @@ public class calculatorServlet extends HttpServlet {
         request.setAttribute("numVal1", numVal1);
         request.setAttribute("numVal2", numVal2);
         request.setAttribute("ope", op);
-        request.setAttribute("result", result);
+        request.setAttribute("result", eResult);
         
         request.getRequestDispatcher("/calculator.jsp").forward(request, response);
 
