@@ -21,15 +21,15 @@
             </span>
             <div class="form-holder">
             <form action="/MP4Cookies/calculatorServlet" method="POST">
-                <div class="input-holder">
-                    Num1: <input type="text" id="text1" name="Val1" /> <select id="drop1" name="history" class="history-dropdown">
+                <div class="input-holder" id="value-input">
+                    <input type="text" id="text1" name="Val1" placeholder="First Value" /> <select id="drop1" name="history" class="history-dropdown">
                         <option selected="selected" disabled="true">History</option>
                     </select>
                     <br>
                 </div>
 
-                <div class="input-holder">
-                    Num2: <input type="text" id="text2" name="Val2" /> <select id="drop2" name="history" class="history-dropdown">
+                <div class="input-holder" id="value-input">
+                    <input type="text" id="text2" name="Val2" placeholder="Second Value" /> <select id="drop2" name="history" class="history-dropdown">
                         <option selected="selected" disabled="true">History</option>
                     </select>
                     <br>

@@ -82,3 +82,37 @@ body {
 .button:focus-visible {
     box-shadow: none;
 }
+
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+select {
+  width: auto;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=text], select {
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    text-decoration: none #D1D5DB solid;
+    text-decoration-thickness: auto;
+    border-radius: .5rem;
+    font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+}
+
+#value-input {
+    gap: 5px;
+}
