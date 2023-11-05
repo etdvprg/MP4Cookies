@@ -51,24 +51,27 @@ public class calculatorServlet extends HttpServlet {
         } catch (NullPointerException e) { 
             throw e;
         }
-        
-        Cookie cookie = new Cookie("history" + System.currentTimeMillis(), String.valueOf(result));
-        cookie.setMaxAge(-1);
-        
-        response.addCookie(cookie);
-        
         Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            int maxCookiesToShow = 5;
-            int historyCtr = 0;
+        List<Cookie> historyCookies = new ArrayList<>();
+        
+        String cookieName = "history" + System.currentTimeMillis();
+        String cookieValue = String.valueOf(result);
 
-            for (Cookie c : cookies) {
-                if (c.getName().startsWith("history")) {
-                    if (historyCtr > maxCookiesToShow) {
-                        c.setMaxAge(0);
-                        response.addCookie(c);
-                    }
-                    historyCtr++;
+        Cookie newCookie = new Cookie(cookieName, cookieValue);
+        response.addCookie(newCookie);
+        
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().startsWith("history")) {
+                    historyCookies.add(cookie);
+                }
+            }
+
+            if (historyCookies.size() > 5) {
+                historyCookies.subList(0, historyCookies.size() - 5).clear();
+                for (Cookie oldCookie : historyCookies.subList(0, historyCookies.size() - 5)) {
+                    oldCookie.setMaxAge(0);
+                    response.addCookie(oldCookie);
                 }
             }
         }
