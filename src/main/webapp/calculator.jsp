@@ -16,7 +16,9 @@
     <body>
         <div class='wrapper'>
         <div class='col-1'>
-            <h1>The Mighty Paraphernalia of Saint Liborius</h1>
+            <span class="col-1-header">
+                The Mighty Paraphernalia of Saint Liborius
+            </span>
             <div class="form-holder">
             <form action="/MP4Cookies/calculatorServlet" method="POST">
                 <div class="input-holder">
@@ -42,8 +44,9 @@
                     <br>
                 </div>
                 
-            <input type="submit" value="Calculate">
+            <input type="submit" value="Calculate" class="button">
             
+            <br>
             <br>
 <%
                 Object rizalt = request.getAttribute("result");
