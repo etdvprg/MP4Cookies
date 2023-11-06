@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href= "/MP4Cookies/css/error.css" />
         <title>Error!</title>
     </head>
     <body>
-        <h1>Missing Input!</h1>
+        <div class='wrapper'>
+            <div class='message-box'>
+                <span class="text-header"><h1>Missing Input!</h1></span>
+                <div class="message"></div>
+                <button class="return"><a href=calculator.jsp>Return!</a></button>
+            </div>  
+        </div>
     </body>
 </html>

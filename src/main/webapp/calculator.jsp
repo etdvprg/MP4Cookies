@@ -48,16 +48,18 @@
             
             <br>
             <br>
-<%
-                Object rizalt = request.getAttribute("result");
-                Object valA = request.getAttribute("numVal1");
-                Object valB = request.getAttribute("numVal2");
-                Object ope = request.getAttribute("ope");
-                
-                if (rizalt != null) {
-                    out.println("Result: " +  " " +  valA.toString() + " " + ope.toString() + " " + valB.toString() + " = " + rizalt.toString());
-                }
-            %>
+            <div class="rizalts">
+                <%
+                    Object rizalt = request.getAttribute("result");
+                    Object valA = request.getAttribute("numVal1");
+                    Object valB = request.getAttribute("numVal2");
+                    Object ope = request.getAttribute("ope");
+
+                    if (rizalt != null) {
+                        out.println("Result: " +  " " +  valA.toString() + " " + ope.toString() + " " + valB.toString() + " = " + rizalt.toString());
+                    }
+                %>
+            </div>
 
             </form>
             </div>

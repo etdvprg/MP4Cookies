@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href= "/MP4Cookies/css/error.css" />
         <title>Error!</title>
     </head>
     <body>
-        <h1>Arithmetic Error!</h1>
+        <div class='wrapper'>
+            <div class='message-box'>
+                <span class="text-header"><h1>Arithmetic Error!</h1></span>
+            </div>  
+        </div>  
     </body>
 </html>
