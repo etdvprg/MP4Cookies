@@ -175,3 +175,39 @@ input[type=radio]:disabled {
     font-weight: 700;
     font-size: 14px;
 }
+
+
+.img-div {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.img-div img {
+    height: 40%;
+    width: 40%;
+    object-fit: contain;
+    display: block;
+}
+
+.col-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-holder img {
+    max-width: 40%;
+}
+
+.img-caption {
+    font-style: italic;
+}
+
+
+
+

@@ -17,7 +17,7 @@
         <div class='wrapper'>
         <div class='col-1'>
             <span class="col-1-header">
-                The Mighty Paraphernalia of Saint Liborius
+                The Mighty Paraphernalia of Saint Vincent Ferrer
             </span>
             <div class="form-holder">
             <form action="/MP4Cookies/calculatorServlet" method="POST">
@@ -65,9 +65,17 @@
                
         </div>
             
-            <div class = 'col-2'>
-                Photo of Saint Liborious
-            </div>    
+            <div class = "col-2">
+                <div class="img-holder">
+                    <img id="img" src="/MP4Cookies/image/ferrer.jpg" alt="St. Vincent Ferrer preaching" loading="lazy">
+           
+                </div>
+                <div class="img-caption">
+                    Saint Vincent Ferrer
+                </div>
+                
+            </div>
+            
         </div>
     </body>
 </html>
