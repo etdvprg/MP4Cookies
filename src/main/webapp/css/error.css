@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Source Code Pro');
+
+
 body {
     font-family: 'Muli', sans-serif;
     font-size: 14px;
@@ -63,12 +66,13 @@ body {
     padding: 10px;
     margin: 10px;
     line-height: 1.8;
-    border-radius: 5px;
     cursor: pointer;
     font-family: sans-serif;
     font-weight: 400;
-    background-color: rgba(255,204,203, 0.5);
-    color: #A66;
+    background-color: rgb(244, 190, 190);
+    border: 1px solid rgb(244, 100, 100);
+    border-radius: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 a {
@@ -78,10 +82,12 @@ a {
 
 a:hover {
     color: #000;
-    text-decoration:none;
+    text-decoration: none;
     cursor: pointer;
 }
 
-
-
-
+.message {
+   color: #000;
+   font-size: 18px;
+   font-family: 'Source Code Pro';
+}

@@ -98,9 +98,6 @@ public class calculatorServlet extends HttpServlet {
         request.setAttribute("result", eResult);
         
         request.getRequestDispatcher("/calculator.jsp").forward(request, response);
-
-        response.setHeader("Cache-Control", "public, max-age=31536000"); // Cache the image for one year
-
     }
 
 

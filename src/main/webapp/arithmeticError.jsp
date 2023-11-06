@@ -15,7 +15,15 @@
     <body>
         <div class='wrapper'>
             <div class='message-box'>
+                
                 <span class="text-header"><h1>Arithmetic Error!</h1></span>
+                <br>
+                <span class="message">
+                    Possible Errors: Division of zeroes, overflow or underflow results, Illegal mathemetical arguments. 
+                </span>
+                <br>
+                <br>
+                <button class="return"><a href=calculator.jsp>Return!</a></button>
             </div>  
         </div>  
     </body>
