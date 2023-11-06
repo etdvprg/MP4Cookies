@@ -35,8 +35,12 @@ public class calculatorServlet extends HttpServlet {
         double numVal2;
 
         try {
-            numVal1 = Double.parseDouble(val1);
-            numVal2 = Double.parseDouble(val2);
+            if (val1 != null && val1.matches("[-+]?\\d*\\.?\\d+") && val2 != null && val2.matches("[-+]?\\d*\\.?\\d+")) {
+                numVal1 = Double.parseDouble(val1);
+                numVal2 = Double.parseDouble(val2);
+            } else {
+                throw new NumberFormatException();
+            }
         } catch (NumberFormatException e) {
             throw new NumberFormatException();
         }
@@ -59,6 +63,10 @@ public class calculatorServlet extends HttpServlet {
             throw new ArithmeticException();
         } catch (NullPointerException e) {
             throw new NullPointerException();
+        }
+        
+        if (Double.isNaN(result) || Double.isInfinite(result)) {
+            throw new ArithmeticException();
         }
         
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
@@ -99,6 +107,5 @@ public class calculatorServlet extends HttpServlet {
         
         request.getRequestDispatcher("/calculator.jsp").forward(request, response);
     }
-
-
+    
 }

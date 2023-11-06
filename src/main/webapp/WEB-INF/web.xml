@@ -15,6 +15,11 @@
     </error-page>
     
     <error-page>
+        <exception-type>java.lang.IllegalArgumentException</exception-type>
+        <location>/arithmeticError.jsp</location>
+    </error-page>
+    
+    <error-page>
         <exception-type>java.lang.NullPointerException</exception-type>
         <location>/missingInputError.jsp</location>
     </error-page>
