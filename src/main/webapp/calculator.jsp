@@ -35,12 +35,12 @@
                     <br>
                 </div>
                 
-                <div class="input-holder">
-                    Operation: 
-                    <input type="radio" name="operation" value="+" />ADD
-                    <input type="radio" name="operation" value="-" />SUB
-                    <input type="radio" name="operation" value="*" />MUL
-                    <input type="radio" name="operation" value="/" />DIV
+                <div class="input-holder" id="radio-holder">
+                    Operation:
+                    <input type="radio" name="operation" value="+" /><label class="lbl">+</label>
+                    <input type="radio" name="operation" value="-" /><label class="lbl">–</label>
+                    <input type="radio" name="operation" value="*" /><label class="lbl">×</label>
+                    <input type="radio" name="operation" value="/" /><label class="lbl">÷</label>
                     <br>
                 </div>
                 
