@@ -15,10 +15,10 @@
     <body>
         <div class='wrapper'>
             <div class='message-box'>
-                <span class="text-header"><h1>Input Error!</h1></span>
+                <span class="text-header"><h1>Value Error!</h1></span>
                 <br>
                 <span class="message">
-                    Possible Errors: Unsuccesful in data parsing, anomaly in number formatting.
+                    Possible Errors: Unsuccesful in data parsing, anomaly in number formatting, empty strings, presence of non-numeric values. 
                 </span>
                 <br>
                 <br>

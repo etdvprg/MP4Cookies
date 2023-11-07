@@ -16,9 +16,11 @@
         <div class='wrapper'>
             <div class='message-box'>
                 <span class="text-header"><h1>Input Error!</h1></span>
+                <br>
                 <span class="message">
-                    Possible Errors: No inputs found, presenece of non-numeric values, etc.
+                    Possible Errors: No inputs found, presenece of non-numeric values.
                 </span>
+                <br>
                 <button class="return"><a href=calculator.jsp>Return!</a></button>
             </div>  
         </div>  

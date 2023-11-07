@@ -31,7 +31,7 @@
     
      <error-page>
         <exception-type>java.lang.NumberFormatException</exception-type>
-        <location>/inputError.jsp</location>
+        <location>/valueError.jsp</location>
     </error-page>
     
     <error-page>

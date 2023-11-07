@@ -15,8 +15,12 @@
     <body>
         <div class='wrapper'>
             <div class='message-box'>
-                <span class="text-header"><h1>Missing Input!</h1></span>
-                <div class="message"></div>
+                <span class="text-header"><h1>Missing Error!</h1></span>
+                <br>
+                <span class="message">
+                    Possible Errors: A parameter is missing.
+                </span>
+                <br>
                 <button class="return"><a href=calculator.jsp>Return!</a></button>
             </div>  
         </div>
