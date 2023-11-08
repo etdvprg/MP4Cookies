@@ -17,7 +17,7 @@
         <div class='wrapper'>
         <div class='col-1'>
             <span class="col-1-header">
-                The Mighty Paraphernalia of Saint Vincent Ferrer
+                Blessed Calculator of Saint Vincent Ferrer
             </span>
             <div class="form-holder">
             <form action="/MP4Cookies/calculatorServlet" method="POST">
