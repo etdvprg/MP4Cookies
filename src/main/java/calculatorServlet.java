@@ -25,6 +25,8 @@ public class calculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ArithmeticException {
         
+        //input: collection of data from the jsp
+        
         String val1 = request.getParameter("Val1");
         String val2 = request.getParameter("Val2");
         String op = request.getParameter("operation");
@@ -34,6 +36,7 @@ public class calculatorServlet extends HttpServlet {
         double numVal1;
         double numVal2;
 
+        //process: the condition serves as another "parser", detector, or input sanitator for some potential sneaky characters to bypass the only required information.  
         try {
             if (val1 != null && val1.matches("[-+]?\\d*\\.?\\d+") && val2 != null && val2.matches("[-+]?\\d*\\.?\\d+")) {
                 numVal1 = Double.parseDouble(val1);
@@ -45,6 +48,7 @@ public class calculatorServlet extends HttpServlet {
             throw new NumberFormatException();
         }
 
+        //process: here lies the process of actually calculating the given values, and extracting the results.
         try {
             if (op.equals("+")) {
                 result = numVal1 + numVal2;
@@ -65,24 +69,28 @@ public class calculatorServlet extends HttpServlet {
             throw new NullPointerException();
         }
         
+        //rare cases
         if (Double.isNaN(result) || Double.isInfinite(result)) {
             throw new ArithmeticException();
         }
         
+        //formatting of the obtained results, up to two decimal places
+        
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String eResult = decimalFormat.format(result);
 
-
-
+        //cookie monster: ArrayList seems to be efficient for data collection in the current regard, especially with its dynamic sizing, iteration, and random access; its T(n) also ranges from O(1) to O(n), depending on the function.
         Cookie[] cookies = request.getCookies();
         List<Cookie> historyCookies = new ArrayList<>();
         
+        //cookie monster: replication of the key-value pointers, the use of currentTimeMillis() (thanks Google) provides a unique idenitifier for the cookie.
         String cookieName = "history" + System.currentTimeMillis();
         String cookieValue = eResult;
 
         Cookie newCookie = new Cookie(cookieName, cookieValue);
         response.addCookie(newCookie);
         
+        //cookie monster: critical process of storing the results, and only storing the 5 recent results, the back-end process for the front-end script and jsp. (:O)
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().startsWith("history")) {
@@ -98,8 +106,7 @@ public class calculatorServlet extends HttpServlet {
                 }
             }
         }
-        
-        
+
         request.setAttribute("numVal1", numVal1);
         request.setAttribute("numVal2", numVal2);
         request.setAttribute("ope", op);
