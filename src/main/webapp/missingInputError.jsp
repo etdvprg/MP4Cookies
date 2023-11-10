@@ -15,7 +15,7 @@
     <body>
         <div class='wrapper'>
             <div class='message-box'>
-                <span class="text-header"><h1>Missing Error!</h1></span>
+                <span class="text-header"><h1>Missing Input Error!</h1></span>
                 <br>
                 <span class="message">
                     Possible Errors: A parameter is missing.
